@@ -67,3 +67,13 @@ void Order::display()
     std::cout << "Side     : " << (side == 'B' ? "BUY" : "SELL") << std::endl;
     std::cout << "Active   : " << (isActive ? "YES" : "NO") << std::endl;
 }
+
+bool Order::operator<(const Order& other) const{
+    return price < other.price;
+}
+bool Order::operator>(const Order& other) const{
+    return price > other.price;
+}
+bool Order::operator==(const Order& other) const{
+    return price == other.price;
+}

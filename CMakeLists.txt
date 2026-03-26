@@ -11,4 +11,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 include_directories(include)
 
 # Add the executable
-add_executable(hft-engine src/main.cpp src/Order.cpp)
+add_executable(hft-engine 
+    src/main.cpp 
+    src/Order.cpp
+    src/LimitOrder.cpp
+    src/MarketOrder.cpp)

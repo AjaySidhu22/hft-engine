@@ -21,10 +21,12 @@ private:
 public:
     Order(int64_t id, std::string symbol, double price, int64_t qty, char side);
     
-    ~Order();
+    virtual ~Order();
      
 
     int64_t getOrderId();
+
+    virtual std::string getOrderType() const = 0;
 
     std::string getStockSymbol();
 
@@ -37,10 +39,17 @@ public:
     int64_t getTimestamp();
 
     bool isOrderActive();
+
+    bool operator<(const Order& other) const;
+
+    bool operator>(const Order& other) const;
+
+    bool operator==(const Order& other) const;
+
     // Setter - declaration only
     void setIsActive(bool active);
      // Display - declaration only
-    void display();
+    virtual void display();
 };
 
 #endif // This tells compiler: if this file was already included,
