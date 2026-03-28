@@ -9,15 +9,12 @@ Order::Order(int64_t id, std::string symbol, double price, int64_t qty, char sid
       side(side),
       timestamp(std::chrono::system_clock::now().time_since_epoch().count()),
       isActive(true)
-      {
-
-      }
+{
+}
 Order::~Order()
 {
     std::cout << "Order " << orderId << " destroyed" << std::endl;
 }
-
-
 
 int64_t Order::getOrderId()
 {
@@ -68,12 +65,15 @@ void Order::display()
     std::cout << "Active   : " << (isActive ? "YES" : "NO") << std::endl;
 }
 
-bool Order::operator<(const Order& other) const{
+bool Order::operator<(const Order &other) const
+{
     return price < other.price;
 }
-bool Order::operator>(const Order& other) const{
+bool Order::operator>(const Order &other) const
+{
     return price > other.price;
 }
-bool Order::operator==(const Order& other) const{
+bool Order::operator==(const Order &other) const
+{
     return price == other.price;
 }
